@@ -4,7 +4,6 @@ from src.data_preprocessing import load_and_merge_data, preprocess_dataframe
 from src.model_training import train_models, save_model
 
 def main():
-    # 1. Load & Merge
     df = load_and_merge_data(data_dir="data")
     
     df = preprocess_dataframe(df, text_col="text")
