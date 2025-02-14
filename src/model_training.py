@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
 from sklearn.metrics import classification_report
 
-import joblib  # For saving/loading models
+import joblib 
 
 def train_models(df: pd.DataFrame):
     """
@@ -16,15 +16,12 @@ def train_models(df: pd.DataFrame):
     X = df["text"]
     y = df["class"]
     
-    # Split data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
     
-    # Vectorize using TF-IDF
     vectorizer = TfidfVectorizer()
     Xv_train = vectorizer.fit_transform(X_train)
     Xv_test = vectorizer.transform(X_test)
     
-    # We can store models in a dict
     models = {
         "LogisticRegression": LogisticRegression(max_iter=200),
         "DecisionTree": DecisionTreeClassifier(),
@@ -40,8 +37,6 @@ def train_models(df: pd.DataFrame):
         print(f"Score: {model.score(Xv_test, y_test):.4f}")
         print(classification_report(y_test, preds))
         
-        # Save trained model and the vectorizer
-        # In a real scenario, you might choose only the best model.
         trained_models[model_name] = model
     
     return vectorizer, trained_models
