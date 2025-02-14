@@ -16,15 +16,10 @@ def load_and_merge_data(data_dir: str = "data"):
 
     fake_news["class"] = 0
     true_news["class"] = 1
-
-    # Drop last 10 rows to create test split manually if you wish
-    # or we can rely entirely on train_test_split.
-    # (Your original code manually removed rows - that’s optional.)
     
     data_merge = pd.concat([fake_news, true_news], axis=0)
     data_merge = data_merge.sample(frac=1).reset_index(drop=True)
     
-    # Drop columns you don’t need
     if set(["title","subject","date"]).issubset(data_merge.columns):
         data_merge.drop(columns=["title", "subject", "date"], inplace=True)
 
