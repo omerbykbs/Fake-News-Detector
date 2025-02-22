@@ -18,7 +18,7 @@ A machine learning-powered **Fake News Detection** system built with **FastAPI**
 | POST   | `/predict/` | Fake/Real prediction  |
 | POST   | `/set_model/` | Switch ML model     |
 
-## 📋 Example Server Logs
+## Example Server Logs
 
 These are example server logs when running the FastAPI app with Uvicorn:
 
