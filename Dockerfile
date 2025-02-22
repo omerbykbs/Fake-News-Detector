@@ -25,8 +25,8 @@ RUN pip install --no-cache-dir --upgrade pip \
 # Copy the rest of the project files into the container
 COPY . .
 
-# Expose the port your Flask API will run on (adjust if needed)
-EXPOSE 5000
+# Expose the port for FastAPI
+EXPOSE 8000
 
-# Define the default command to run the Flask app
-CMD ["python", "src/inference_service.py"]
+# Start the FastAPI app using Uvicorn
+CMD ["uvicorn", "app.fake_news_detector:app", "--host", "0.0.0.0", "--port", "8000"]
