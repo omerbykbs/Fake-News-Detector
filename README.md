@@ -34,4 +34,8 @@ INFO:     172.17.0.1:56382 - "GET / HTTP/1.1" 200 OK
 INFO:     172.17.0.1:64282 - "POST /predict/ HTTP/1.1" 200 OK
 INFO:     172.17.0.1:59828 - "POST /predict/ HTTP/1.1" 422 Unprocessable Entity
 INFO:     172.17.0.1:60682 - "POST /set_model/?model_name=RandomForest HTTP/1.1" 200 OK
+```
 
+## Example Usage
+
+![Test-Usage](images/fastapi.jpg)
