@@ -5,7 +5,7 @@ A machine learning-powered **Fake News Detection** system built with **FastAPI**
 ---
 
 ## Features
-- Detects fake news using ML models (Logistic Regression, Random Forest, etc.)
+- Detects fake news using ML models (Logistic Regression, Random Forest, Gradient Boosting und Decision Tree)
 - RESTful API with FastAPI
 - Dockerized for easy deployment
 - Swagger UI for API testing
