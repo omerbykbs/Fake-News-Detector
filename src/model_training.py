@@ -44,4 +44,4 @@ for name, model in models.items():
     print(f"\n{name} Report:\n", classification_report(y_test, predictions))
     joblib.dump(model, f"models/{name}.pkl")
 
-print("\n✅ All models trained and saved successfully.")
+print("\nAll models trained and saved successfully.")
