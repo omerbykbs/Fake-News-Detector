@@ -4,6 +4,8 @@ import string
 import os
 
 def word_opt(text):
+    if not isinstance(text, str):
+        return ""
     text = text.lower()
     text = re.sub(r'\[.*?\]', '', text)
     text = re.sub(r'\W', ' ', text)
@@ -33,6 +35,7 @@ def load_and_preprocess_data():
     data_merge = data_merge.sample(frac=1).reset_index(drop=True)
 
     # Apply text cleaning
+    data_merge.dropna(subset=['text'], inplace=True)
     data_merge['text'] = data_merge['text'].apply(word_opt)
 
     return data_merge
