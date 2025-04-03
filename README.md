@@ -39,3 +39,5 @@ INFO:     172.17.0.1:60682 - "POST /set_model/?model_name=RandomForest HTTP/1.1"
 ## Example Usage
 
 ![Test-Usage](images/fastapi.jpg)
+
+![Accuracies](images/accuracies.jpg)
