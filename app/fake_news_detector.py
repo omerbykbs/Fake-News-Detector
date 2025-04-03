@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from src.inference_service import predict_fake_news, set_model
+from typing import List
+from src.inference_service import get_all_model_accuracies
 
 app = FastAPI()
 
@@ -17,6 +19,21 @@ def predict_news(article: NewsArticle):
     try:
         prediction = predict_fake_news(article.title, article.text)
         return {"prediction": prediction}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@app.post("/batch_predict/")
+def batch_predict(articles: List[NewsArticle]):
+    try:
+        return {"predictions": [predict_fake_news(article.title, article.text) for article in articles]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/accuracies/")
+def model_accuracies():
+    try:
+        print("Starting full model evaluation...")
+        return get_all_model_accuracies()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
